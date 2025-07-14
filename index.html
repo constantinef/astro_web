@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Autonomous Astro Observatory</title>
+    <style>
+        /* --- General Styling & Dark Theme --- */
+        :root {
+            --primary-bg-color: #0a0f18; /* Deep space blue */
+            --secondary-bg-color: #1a202c;
+            --text-color: #e0e0e0;
+            --heading-color: #ffffff;
+            --accent-color: #38bdf8; /* Light blue accent */
+            --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--primary-bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* --- Page Sections --- */
+        .page-section {
+            padding: 80px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        /* --- Header / Hero Section --- */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            color: var(--heading-color);
+            /* Replace with a high-quality space image URL */
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1446776811953-b23d579212de?q=80&w=2072') no-repeat center center/cover;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            font-weight: 300;
+        }
+
+        /* --- General Content --- */
+        h2 {
+            font-size: 2.5rem;
+            color: var(--heading-color);
+            margin-bottom: 40px;
+        }
+
+        p {
+            font-size: 1.1rem;
+            max-width: 650px;
+            margin: 0 auto 20px auto;
+        }
+
+        /* --- How It Works Section --- */
+        .how-it-works-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .step {
+            background-color: var(--secondary-bg-color);
+            padding: 30px;
+            border-radius: 8px;
+            flex-basis: 250px;
+            flex-grow: 1;
+        }
+
+        .step h3 {
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+        }
+
+        /* --- Call to Action Button --- */
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--primary-bg-color);
+            padding: 15px 35px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 50px;
+            margin-top: 20px;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #67cffb;
+            transform: translateY(-3px);
+        }
+
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid #2d3748;
+        }
+        
+        footer a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            .hero p {
+                font-size: 1.2rem;
+            }
+            h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header/Hero Section -->
+    <header class="hero">
+        <h1>The Autonomous Astro Observatory</h1>
+        <p>Automating the discovery of cosmic events.</p>
+    </header>
+
+    <main>
+        <!-- About the Project Section -->
+        <section id="about" class="page-section">
+            <h2>About The Project</h2>
+            <p>
+                The Autonomous Astro Observatory is a sophisticated AI agent designed to navigate the vast universe of astronomical data. In an era where new information is gathered faster than it can be analyzed, our project provides an automated solution to sift through the noise and pinpoint phenomena of scientific interest.
+            </p>
+            <p>
+                By connecting to public datasets and APIs from institutions like NASA and ESA, the agent works tirelessly to identify anomalies, track celestial events, and surface novel insights that might otherwise be missed.
+            </p>
+        </section>
+
+        <!-- How It Works Section -->
+        <section id="how-it-works" class="page-section" style="background-color: var(--secondary-bg-color);">
+            <h2>How It Works</h2>
+            <div class="how-it-works-container">
+                <div class="step">
+                    <h3>1. Ingest</h3>
+                    <p>We continuously gather data from open-source astronomical databases and APIs.</p>
+                </div>
+                <div class="step">
+                    <h3>2. Analyze</h3>
+                    <p>Our AI agent searches for anomalies, patterns, and other interesting phenomena.</p>
+                </div>
+                <div class="step">
+                    <h3>3. Publish</h3>
+                    <p>Findings are exposed via a simple REST API for researchers and enthusiasts.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Access the Data Section -->
+        <section id="api" class="page-section">
+            <h2>Access the Data</h2>
+            <p>
+                Our findings are available via a free, public REST API. Get started by reading the documentation.
+            </p>
+            <!-- Replace "#" with the actual link to your API documentation -->
+            <a href="#" class="cta-button">View API Documentation</a>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Autonomous Astro Observatory Project</p>
+        <!-- Optional: Replace "#" with a link to your GitHub repo -->
+        <p>
+            <a href="#">View Source on GitHub</a>
+        </p>
+    </footer>
+
+</body>
+</html># astro_web
