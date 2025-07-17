@@ -1,17 +1,28 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Autonomous Astro Observatory</title>
+    <title>The Autonomous Astro Observatory | Unveiling the Cosmos</title>
     <style>
-        /* --- General Styling & Dark Theme --- */
         :root {
-            --primary-bg-color: #0a0f18; /* Deep space blue */
-            --secondary-bg-color: #1a202c;
-            --text-color: #e0e0e0;
-            --heading-color: #ffffff;
-            --accent-color: #38bdf8; /* Light blue accent */
+            --background: hsl(222.2 84.2% 4.9%);
+            --foreground: hsl(210 40% 98%);
+            --card: hsl(222.2 84.2% 4.9%);
+            --card-foreground: hsl(210 40% 98%);
+            --popover: hsl(222.2 84.2% 4.9%);
+            --popover-foreground: hsl(210 40% 98%);
+            --primary: hsl(210 40% 98%);
+            --primary-foreground: hsl(210 40% 9.8%);
+            --secondary: hsl(217.2 32.6% 17.5%);
+            --secondary-foreground: hsl(210 40% 98%);
+            --muted: hsl(217.2 32.6% 17.5%);
+            --muted-foreground: hsl(215 20.2% 65.1%);
+            --accent: hsl(217.2 32.6% 17.5%);
+            --accent-foreground: hsl(210 40% 98%);
+            --border: hsl(217.2 32.6% 17.5%);
+            --radius: 0.5rem;
             --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
         }
 
@@ -23,180 +34,210 @@
 
         body {
             font-family: var(--font-family);
-            background-color: var(--primary-bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
+            background-color: var(--background);
+            color: var(--foreground);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
-        /* --- Page Sections --- */
         .page-section {
-            padding: 80px 20px;
-            max-width: 900px;
+            padding: 100px 25px;
+            max-width: 1100px;
             margin: 0 auto;
             text-align: center;
         }
 
-        /* --- Header / Hero Section --- */
         .hero {
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 80vh;
             text-align: center;
-            color: var(--heading-color);
-            /* Replace with a high-quality space image URL */
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1446776811953-b23d579212de?q=80&w=2072') no-repeat center center/cover;
+            color: var(--foreground);
+            background: linear-gradient(165deg, hsl(222.2 84.2% 4.9%) 60%, hsl(222.2 80% 8%));
+            padding: 20px;
         }
 
         .hero h1 {
             font-size: 3.5rem;
-            margin-bottom: 1rem;
+            font-weight: 700;
+            letter-spacing: -0.05em;
+            margin-bottom: 1.5rem;
         }
 
         .hero p {
-            font-size: 1.5rem;
+            font-size: 1.25rem;
             font-weight: 300;
+            max-width: 700px;
+            color: var(--muted-foreground);
         }
 
-        /* --- General Content --- */
         h2 {
             font-size: 2.5rem;
-            color: var(--heading-color);
-            margin-bottom: 40px;
+            font-weight: 700;
+            letter-spacing: -0.04em;
+            color: var(--foreground);
+            margin-bottom: 20px;
+        }
+        
+        h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--card-foreground);
+            margin-bottom: 15px;
         }
 
         p {
             font-size: 1.1rem;
-            max-width: 650px;
-            margin: 0 auto 20px auto;
+            max-width: 750px;
+            margin: 0 auto 25px auto;
+            color: var(--muted-foreground);
         }
 
-        /* --- How It Works Section --- */
-        .how-it-works-container {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
+        .section-subtitle {
+            font-size: 1.15rem;
+            color: var(--muted-foreground);
+            max-width: 700px;
+            margin: -10px auto 50px auto;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px;
+            margin-top: 50px;
+            text-align: left;
         }
 
-        .step {
-            background-color: var(--secondary-bg-color);
+        .feature-item {
+            background-color: transparent;
             padding: 30px;
-            border-radius: 8px;
-            flex-basis: 250px;
-            flex-grow: 1;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            transition: border-color 0.3s ease;
+        }
+        
+        .feature-item:hover {
+            border-color: var(--secondary);
+        }
+        
+        .feature-item p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--muted-foreground);
         }
 
-        .step h3 {
-            font-size: 1.5rem;
-            color: var(--accent-color);
-            margin-bottom: 15px;
-        }
-
-        /* --- Call to Action Button --- */
         .cta-button {
             display: inline-block;
-            background-color: var(--accent-color);
-            color: var(--primary-bg-color);
-            padding: 15px 35px;
-            font-size: 1.1rem;
-            font-weight: bold;
+            background-color: var(--primary);
+            color: var(--primary-foreground);
+            padding: 12px 24px;
+            font-size: 1rem;
+            font-weight: 500;
             text-decoration: none;
-            border-radius: 50px;
-            margin-top: 20px;
-            transition: transform 0.3s ease, background-color 0.3s ease;
+            border-radius: var(--radius);
+            margin-top: 25px;
+            transition: opacity 0.3s ease;
+        }
+        
+        .cta-button.disabled {
+            background-color: var(--secondary);
+            color: var(--muted-foreground);
+            cursor: not-allowed;
+            opacity: 0.8;
         }
 
-        .cta-button:hover {
-            background-color: #67cffb;
-            transform: translateY(-3px);
-        }
-
-        /* --- Footer --- */
         footer {
             text-align: center;
-            padding: 40px 20px;
-            border-top: 1px solid #2d3748;
+            padding: 50px 20px;
+            border-top: 1px solid var(--border);
+            background-color: transparent;
+        }
+        
+        footer, footer p, footer a {
+            color: var(--muted-foreground);
+            font-size: 0.9rem;
         }
         
         footer a {
-            color: var(--accent-color);
             text-decoration: none;
+            transition: color 0.3s ease;
         }
 
-        /* --- Responsive Design --- */
+        footer a:hover {
+            color: var(--foreground);
+        }
+
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2.8rem;
             }
             .hero p {
-                font-size: 1.2rem;
+                font-size: 1.15rem;
             }
             h2 {
-                font-size: 2rem;
+                font-size: 2.2rem;
+            }
+            .page-section {
+                padding: 80px 20px;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header/Hero Section -->
     <header class="hero">
-        <h1>The Autonomous Astro Observatory</h1>
-        <p>Automating the discovery of cosmic events.</p>
+        <h1>Autonomous Astro Observatory</h1>
+        <p>Your AI-powered window to the cosmos. We relentlessly scan the stars for anomalies and events, turning raw data into groundbreaking discoveries.</p>
     </header>
 
     <main>
-        <!-- About the Project Section -->
         <section id="about" class="page-section">
-            <h2>About The Project</h2>
-            <p>
-                The Autonomous Astro Observatory is a sophisticated AI agent designed to navigate the vast universe of astronomical data. In an era where new information is gathered faster than it can be analyzed, our project provides an automated solution to sift through the noise and pinpoint phenomena of scientific interest.
+            <h2>The Universe is Expanding—And So Is Its Data</h2>
+            <p class="section-subtitle">
+                Modern telescopes generate petabytes of data, far more than humans can analyze. Countless secrets are hidden in this deluge. Our project was born from a single question: How can we automate discovery?
             </p>
             <p>
-                By connecting to public datasets and APIs from institutions like NASA and ESA, the agent works tirelessly to identify anomalies, track celestial events, and surface novel insights that might otherwise be missed.
+                The Autonomous Astro Observatory is a sophisticated, GenAI-powered system designed to be the modern astronomer's most powerful tool. It connects to public astronomical data streams, working 24/7 to ingest, process, and analyze information. It's not just about finding needles in a haystack; it's about understanding what they mean.
             </p>
         </section>
 
-        <!-- How It Works Section -->
-        <section id="how-it-works" class="page-section" style="background-color: var(--secondary-bg-color);">
-            <h2>How It Works</h2>
-            <div class="how-it-works-container">
-                <div class="step">
-                    <h3>1. Ingest</h3>
-                    <p>We continuously gather data from open-source astronomical databases and APIs.</p>
+        <section id="capabilities" class="page-section" style="background-color: hsl(222.2 82% 5.5%); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+            <h2>Core Capabilities</h2>
+            <p class="section-subtitle">Our system is a comprehensive, end-to-end solution for automated astronomical research.</p>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <h3>24/7 Data Ingestion</h3>
+                    <p>We continuously pull data from leading open-source astronomical feeds, including transient alerts, new imagery, and research papers, ensuring our knowledge is always up-to-date.</p>
                 </div>
-                <div class="step">
-                    <h3>2. Analyze</h3>
-                    <p>Our AI agent searches for anomalies, patterns, and other interesting phenomena.</p>
+                <div class="feature-item">
+                    <h3>Intelligent Analysis</h3>
+                    <p>At our core is a powerful AI agent that cross-references data streams to identify anomalies, track objects, and flag statistically significant events that warrant further study.</p>
                 </div>
-                <div class="step">
-                    <h3>3. Publish</h3>
-                    <p>Findings are exposed via a simple REST API for researchers and enthusiasts.</p>
+                <div class="feature-item">
+                    <h3>Automated Publishing</h3>
+                    <p>When a key finding is identified, the system automatically publishes the essential details and context to a public-facing API, making discoveries accessible to everyone.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Access the Data Section -->
         <section id="api" class="page-section">
-            <h2>Access the Data</h2>
-            <p>
-                Our findings are available via a free, public REST API. Get started by reading the documentation.
+            <h2>Explore the Discoveries</h2>
+            <p class="section-subtitle">
+                Our findings will be programmatically accessible. Dive into the data, build your own applications, and be part of the next wave of cosmic discovery.
             </p>
-            <!-- Replace "#" with the actual link to your API documentation -->
-            <a href="#" class="cta-button">View API Documentation</a>
+            <a href="javascript:void(0);" class="cta-button disabled">API Coming Soon</a>
         </section>
     </main>
 
-    <!-- Footer -->
     <footer>
         <p>© 2024 Autonomous Astro Observatory Project</p>
-        <!-- Optional: Replace "#" with a link to your GitHub repo -->
         <p>
-            <a href="#">View Source on GitHub</a>
+            <a href="https://github.com/constantinef/astro_web" target="_blank" rel="noopener noreferrer">View Source on GitHub</a>
         </p>
     </footer>
 
 </body>
-</html># astro_web
+</html>
